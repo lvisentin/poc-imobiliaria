@@ -1,0 +1,44 @@
+/* Custom styles for the carousel */
+.property-carousel {
+  position: relative;
+  height: 100%;
+}
+
+.property-carousel .slick-list,
+.property-carousel .slick-track,
+.property-carousel .slick-slide,
+.property-carousel .slick-slide > div {
+  height: 100%;
+}
+
+.property-carousel .slick-slide > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.property-carousel .slick-dots {
+  bottom: 10px;
+}
+
+.property-carousel .slick-dots li button:before {
+  color: white;
+}
+
+.property-carousel .slick-dots li.slick-active button:before {
+  color: white;
+}
+
+.property-carousel .slick-prev,
+.property-carousel .slick-next {
+  z-index: 1;
+}
+
+.property-carousel .slick-prev {
+  left: 10px;
+}
+
+.property-carousel .slick-next {
+  right: 10px;
+}
+
