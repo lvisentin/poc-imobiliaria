@@ -21,6 +21,7 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
           setIsLoading(false);
         }
       } catch (error) {
+    console.log("error", error)
         console.error("Auth check error:", error);
         router.push("/login");
       }

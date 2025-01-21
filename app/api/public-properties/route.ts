@@ -21,6 +21,7 @@ export async function GET() {
     });
     return NextResponse.json({ success: true, properties });
   } catch (error) {
+    console.log("error", error)
     console.error("Error fetching public properties:", error);
     return NextResponse.json(
       {

@@ -57,6 +57,7 @@ export function LeadHistoryModal({
           setError("Failed to fetch messages");
         }
       } catch (err) {
+      console.log("error", err)
         setError("An error occurred while fetching messages");
       }
     };
@@ -87,6 +88,7 @@ export function LeadHistoryModal({
         setError("Failed to send message");
       }
     } catch (err) {
+      console.log("error", err)
       setError("An error occurred while sending message");
     }
   };

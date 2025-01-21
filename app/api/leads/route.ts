@@ -10,6 +10,8 @@ export async function GET() {
     });
     return NextResponse.json({ success: true, leads });
   } catch (error) {
+    console.log("error", error)
+    console.log("error", error)
     console.error("Error fetching leads:", error);
     return NextResponse.json(
       { success: false, message: "An error occurred while fetching leads" },
@@ -42,6 +44,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ success: true, lead: newLead });
   } catch (error) {
+    console.log("error", error)
     console.error("Lead creation error:", error);
     return NextResponse.json(
       { success: false, message: "An error occurred during lead creation" },

@@ -16,6 +16,7 @@ export function Header() {
         console.error("Logout failed");
       }
     } catch (error) {
+    console.log("error", error)
       console.error("Logout error:", error);
     }
   };

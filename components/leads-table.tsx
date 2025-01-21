@@ -39,6 +39,7 @@ export function LeadsTable() {
           setError("Failed to fetch leads");
         }
       } catch (err) {
+      console.log("error", err)
         setError("An error occurred while fetching leads");
       }
     };

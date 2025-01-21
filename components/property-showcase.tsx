@@ -31,6 +31,7 @@ export function PropertyShowcase() {
           setError("Failed to fetch properties");
         }
       } catch (err) {
+      console.log("error", err)
         setError("An error occurred while fetching properties");
       }
     };

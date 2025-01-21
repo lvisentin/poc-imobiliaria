@@ -56,6 +56,7 @@ export function SignupForm() {
         setError(data.message || "Registration failed");
       }
     } catch (err) {
+      console.log("error", err)
       setError("An error occurred. Please try again.");
     } finally {
       setIsLoading(false);

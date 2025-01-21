@@ -7,10 +7,11 @@ const prisma = new PrismaClient();
 
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } }
+   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const propertyId = parseInt(params.id, 10);
+    const { id } = await params;
+    const propertyId = parseInt(id, 10);
     const property = await prisma.property.findUnique({
       where: { id: propertyId },
       include: {
@@ -31,6 +32,7 @@ export async function GET(
 
     return NextResponse.json({ success: true, property });
   } catch (error) {
+    console.log("error", error)
     console.error("Error fetching property:", error);
     return NextResponse.json(
       {
@@ -46,10 +48,11 @@ export async function GET(
 
 export async function PUT(
   request: Request,
-  { params }: { params: { id: string } }
+   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const propertyId = parseInt(params.id, 10);
+    const { id } = await params;
+    const propertyId = parseInt(id, 10);
     const formData = await request.formData();
     const title = formData.get("title") as string;
     const description = formData.get("description") as string;
@@ -96,6 +99,7 @@ export async function PUT(
 
     return NextResponse.json({ success: true, property: updatedProperty });
   } catch (error) {
+    console.log("error", error)
     console.error("Property update error:", error);
     return NextResponse.json(
       { success: false, message: "An error occurred during property update" },
@@ -108,10 +112,11 @@ export async function PUT(
 
 export async function DELETE(
   request: Request,
-  { params }: { params: { id: string } }
+   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const propertyId = parseInt(params.id, 10);
+    const { id } = await params;
+    const propertyId = parseInt(id, 10);
 
     await prisma.property.delete({
       where: { id: propertyId },
@@ -122,6 +127,7 @@ export async function DELETE(
       message: "Property deleted successfully",
     });
   } catch (error) {
+    console.log("error", error)
     console.error("Property deletion error:", error);
     return NextResponse.json(
       { success: false, message: "An error occurred during property deletion" },

@@ -1,13 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { AlertCircle, Building } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Alert, AlertDescription } from "@/components/ui/alert";
-import { AlertCircle, Building } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
 interface Property {
   id: number;
@@ -42,6 +41,7 @@ export function PropertyList() {
           setError("Failed to fetch properties");
         }
       } catch (err) {
+        console.log("error", err);
         setError("An error occurred while fetching properties");
       } finally {
         setIsLoading(false);

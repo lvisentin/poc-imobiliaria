@@ -43,6 +43,8 @@ export function LoginForm() {
         setError(data.message || 'Login failed')
       }
     } catch (err) {
+      console.log("error", err)
+      console.log("error", err)
       setError('An error occurred. Please try again.')
     } finally {
       setIsLoading(false)

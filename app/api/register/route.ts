@@ -37,8 +37,9 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ success: true, user: { id: newUser.id, email: newUser.email } })
   } catch (error) {
+    console.log("error", error)
     console.error('Registration error:', error)
-    return NextResponse.json({ success: false, message: 'An error occurred during registration', error: error.message }, { status: 500 })
+    return NextResponse.json({ success: false, message: 'An error occurred during registration', error: 'erro' }, { status: 500 })
   } finally {
     await prisma.$disconnect()
   }

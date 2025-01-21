@@ -2,11 +2,12 @@
 
 import { PropertyDetail } from "@/components/property-detail";
 import { LandingPageLayout } from "@/components/landing-page-layout";
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 
 export default function PublicPropertyDetailPage({
   params,
 }: {
-  params: { id: string };
+  params: any;
 }) {
   const propertyId = parseInt(params.id, 10);
 

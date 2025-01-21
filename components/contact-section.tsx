@@ -7,6 +7,8 @@ import { Textarea } from '@/components/ui/textarea'
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { AlertCircle } from 'lucide-react'
 
+/* eslint-disable  @typescript-eslint/no-explicit-any */
+
 export function ContactSection() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -39,6 +41,7 @@ export function ContactSection() {
       setEmail('')
       setMessage('')
     } catch (error) {
+    console.log("error", error)
       setSubmitError('An error occurred. Please try again.')
     } finally {
       setIsSubmitting(false)
@@ -55,7 +58,7 @@ export function ContactSection() {
             </h2>
             <div className="mt-3">
               <p className="text-lg text-gray-500">
-                Have questions about our properties or services? Get in touch with us, and we'll be happy to assist you.
+                Have questions about our properties or services? Get in touch with us, and we&apos;ll be happy to assist you.
               </p>
             </div>
           </div>

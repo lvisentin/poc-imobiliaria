@@ -1,10 +1,11 @@
 import { PropertyDetail } from "@/components/property-detail";
 import { DashboardLayout } from "@/components/dashboard-layout";
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 
 export default function DashboardPropertyDetailPage({
   params,
 }: {
-  params: { id: string };
+  params: any;
 }) {
   const propertyId = parseInt(params.id, 10);
 

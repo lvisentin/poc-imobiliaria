@@ -19,11 +19,12 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
+
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 
 interface Property {
   id: number;
@@ -90,7 +91,6 @@ export function PropertyDetail({
     email: "",
     message: "",
   });
-  const router = useRouter();
 
   useEffect(() => {
     const fetchProperty = async () => {
@@ -118,6 +118,7 @@ export function PropertyDetail({
           setError("Failed to fetch property details");
         }
       } catch (err) {
+        console.log("error", err);
         setError("An error occurred while fetching property details");
       } finally {
         setIsLoading(false);
@@ -164,6 +165,7 @@ export function PropertyDetail({
         throw new Error("Failed to send message");
       }
     } catch (error) {
+      console.log("error", error);
       alert("Failed to send message. Please try again.");
     }
   };

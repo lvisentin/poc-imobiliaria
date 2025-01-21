@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { PrismaClient } from "@prisma/client";
 import { writeFile } from "fs/promises";
 import path from "path";
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 
 const prisma = new PrismaClient();
 
@@ -65,6 +66,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ success: true, property: newProperty });
   } catch (error) {
+    console.log("error", error);
     console.error("Property registration error:", error);
     return NextResponse.json(
       {
@@ -87,7 +89,7 @@ export async function GET(request: NextRequest) {
     const propertyType = searchParams.get("propertyType");
     const area = searchParams.get("area");
 
-    let whereClause: any = {};
+    const whereClause: any = {};
 
     if (minPrice)
       whereClause.price = { ...whereClause.price, gte: parseFloat(minPrice) };
@@ -104,6 +106,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json({ success: true, properties });
   } catch (error) {
+    console.log("error", error);
     console.error("Error fetching properties:", error);
     return NextResponse.json(
       {

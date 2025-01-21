@@ -6,6 +6,7 @@ export function verifyToken(token: string): { userId: number } | null {
   try {
     return verify(token, JWT_SECRET) as { userId: number };
   } catch (error) {
+    console.log("error", error)
     return null;
   }
 }

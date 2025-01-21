@@ -5,10 +5,11 @@ const prisma = new PrismaClient();
 
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } }
+   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const propertyId = parseInt(params.id, 10);
+    const { id } = await params;
+    const propertyId = parseInt(id, 10);
     const property = await prisma.property.findUnique({
       where: { id: propertyId },
       select: {
@@ -32,6 +33,7 @@ export async function GET(
 
     return NextResponse.json({ success: true, property });
   } catch (error) {
+    console.log("error", error)
     console.error("Error fetching public property:", error);
     return NextResponse.json(
       {
