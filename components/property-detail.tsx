@@ -20,7 +20,6 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 
@@ -49,33 +48,33 @@ interface PropertyDetailProps {
   isAuthenticated?: boolean;
 }
 
-function SampleNextArrow(props: any) {
-  const { onClick } = props;
-  return (
-    <Button
-      className="absolute right-2 top-1/2 -translate-y-1/2 z-10"
-      size="icon"
-      variant="secondary"
-      onClick={onClick}
-    >
-      <span className="sr-only">Next</span>
-    </Button>
-  );
-}
+// function SampleNextArrow(props: any) {
+//   const { onClick } = props;
+//   return (
+//     <Button
+//       className="absolute right-2 top-1/2 -translate-y-1/2 z-10"
+//       size="icon"
+//       variant="secondary"
+//       onClick={onClick}
+//     >
+//       <span className="sr-only">Next</span>
+//     </Button>
+//   );
+// }
 
-function SamplePrevArrow(props: any) {
-  const { onClick } = props;
-  return (
-    <Button
-      className="absolute left-2 top-1/2 -translate-y-1/2 z-10"
-      size="icon"
-      variant="secondary"
-      onClick={onClick}
-    >
-      <span className="sr-only">Previous</span>
-    </Button>
-  );
-}
+// function SamplePrevArrow(props: any) {
+//   const { onClick } = props;
+//   return (
+//     <Button
+//       className="absolute left-2 top-1/2 -translate-y-1/2 z-10"
+//       size="icon"
+//       variant="secondary"
+//       onClick={onClick}
+//     >
+//       <span className="sr-only">Previous</span>
+//     </Button>
+//   );
+// }
 
 export function PropertyDetail({
   propertyId,
@@ -135,15 +134,15 @@ export function PropertyDetail({
     }).format(price);
   };
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
-  };
+  // const settings = {
+  //   dots: true,
+  //   infinite: true,
+  //   speed: 500,
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1,
+  //   nextArrow: <SampleNextArrow />,
+  //   prevArrow: <SamplePrevArrow />,
+  // };
 
   const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -209,19 +208,19 @@ export function PropertyDetail({
           <div className="mb-8">
             {property.images.length > 0 ? (
               // <Slider {...settings} className="property-carousel">
-                property.images.map((image, index) => (
-                  <div key={index} className="relative aspect-video">
-                    <Image
-                      src={image}
-                      alt={`${property.title} - Image ${index + 1}`}
-                      layout="fill"
-                      objectFit="cover"
-                      className="rounded-lg"
-                    />
-                  </div>
-                ))
-              // </Slider>
+              property.images.map((image, index) => (
+                <div key={index} className="relative aspect-video">
+                  <Image
+                    src={image}
+                    alt={`${property.title} - Image ${index + 1}`}
+                    layout="fill"
+                    objectFit="cover"
+                    className="rounded-lg"
+                  />
+                </div>
+              ))
             ) : (
+              // </Slider>
               <div className="aspect-video bg-muted flex items-center justify-center rounded-lg">
                 <Building className="h-24 w-24 text-muted-foreground" />
               </div>
