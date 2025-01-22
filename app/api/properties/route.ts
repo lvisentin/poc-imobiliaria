@@ -64,6 +64,15 @@ export async function POST(request: Request) {
       },
     });
 
+    await fetch(
+      "https://n8n.atendimentomed.com.br/webhook-test/register-imovel",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newProperty),
+      }
+    );
+
     return NextResponse.json({ success: true, property: newProperty });
   } catch (error) {
     console.log("error", error);

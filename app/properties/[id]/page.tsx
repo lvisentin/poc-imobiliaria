@@ -1,15 +1,13 @@
 "use client";
 
-import { PropertyDetail } from "@/components/property-detail";
 import { LandingPageLayout } from "@/components/landing-page-layout";
+import { PropertyDetail } from "@/components/property-detail";
+import { useParams } from "next/navigation";
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 
-export default function PublicPropertyDetailPage({
-  params,
-}: {
-  params: any;
-}) {
-  const propertyId = parseInt(params.id, 10);
+export default function PublicPropertyDetailPage() {
+  const { id } = useParams();
+  const propertyId = parseInt(id as any, 10);
 
   return (
     <LandingPageLayout>

@@ -208,8 +208,8 @@ export function PropertyDetail({
         <div className="lg:col-span-2">
           <div className="mb-8">
             {property.images.length > 0 ? (
-              <Slider {...settings} className="property-carousel">
-                {property.images.map((image, index) => (
+              // <Slider {...settings} className="property-carousel">
+                property.images.map((image, index) => (
                   <div key={index} className="relative aspect-video">
                     <Image
                       src={image}
@@ -219,8 +219,8 @@ export function PropertyDetail({
                       className="rounded-lg"
                     />
                   </div>
-                ))}
-              </Slider>
+                ))
+              // </Slider>
             ) : (
               <div className="aspect-video bg-muted flex items-center justify-center rounded-lg">
                 <Building className="h-24 w-24 text-muted-foreground" />
